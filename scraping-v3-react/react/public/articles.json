@@ -1,0 +1,32 @@
+[
+    {
+        "title" : "Web Development with C",
+        "author": "Dennis Ritchie",
+        "year"  : "2020"
+    },
+    {
+        "title" : "Advanced: Googling the error message",
+        "author": "The Practical Dev",
+        "year"  : "2019"
+    },
+    {
+        "title" : "Copying and Pasting from StackOverflow",
+        "author": "Bobby Davis",
+        "year"  : "2022"
+    },
+    {
+        "title" : "Fragile Web Development with SQL and PHP: Mastering the one-tiered monolithic architecture",
+        "author": "Rasmus Lerdorf",
+        "year"  : "2022"
+    },
+    {
+        "title" : "Reinventing your front-end every six weeks",
+        "author": "Practical Dev",
+        "year"  : "2023"
+    },
+    {
+        "title" : "Writing Javascript code that no one else can read",
+        "author": "Practical Dev",
+        "year"  : "2018"
+    }
+]

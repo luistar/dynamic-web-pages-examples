@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <title>A bit of a challenge</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css" />    
+    </head>
+    <body>
+        <section id="main" class="wrapped">
+            <a href="/"><< Back to the homepage</a>
+            <h1>Another page with AJAX</h1>
+            <p>
+                This web page leverages AJAX to fetch a JSON file with a list of
+                statistics and then, after doing some computations, shows some metrics.           
+            </p>
+            <p>
+                The async request is made using the 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>.
+            </p>
+            <p>
+                🧑‍🏫 <span class="bold">Assignment</span>: 
+                Try and scrape this web page using the language/library/framework of your choice.
+                The goal is to save a CSV file with the three statistics that are displayed on the page.
+            </p>
+            <button id="update-statistics-button" class="button">Update statistics</button>
+            <h2>Statistics</h2>
+            <section id="statistics-container">
+                <p><span class="bold">Statistic 1</span>: <span id="statistic-1">Not available</span></p>
+                <p><span class="bold">Statistic 2</span>: <span id="statistic-2">Not available</span></p>
+                <p><span class="bold">Statistic 3</span>: <span id="statistic-3">Not available</span></p>
+            </section>
+        </section>
+    </body>
+    <script src="scripts.min.js"></script>
+</html>

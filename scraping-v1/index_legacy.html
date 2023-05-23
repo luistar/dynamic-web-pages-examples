@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <head>
+        <title>A Web Page with AJAX - Legacy Version</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css" />    
+    </head>
+    <body>
+        <section id="main" class="wrapped">
+            <a href="/"><< Back to the homepage</a>
+            <h1>A web page with AJAX - Legacy Version</h1>
+            <p>
+                This web page leverages AJAX to fetch a JSON file with a list of
+                articles and then shows the fetched articles to the viewers.
+            </p>
+            <p>
+                The async request is made using
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a>.
+                You can check out a more modern approach leveraging the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>
+                in <a href="index.html">this page</a>.
+            </p>
+            <p>
+                🧑‍🏫 <span class="bold">Assignment</span>: 
+                Take a look at the implementation of the AJAX requests in this page. 
+                Then, try and scrape this web page using the language/library/framework of your choice.
+                The goal is to save a CSV file with the title, author and date of each article. 
+            </p>
+            <button id="load-articles-button" class="button">Load the articles</button>
+            <button id="clear-articles-button" class="button button-error">Clear articles list</button>
+            <h2>Articles</h2>
+            <section id="articles-container">
+                <p>No article has been loaded (yet)!</p>
+            </section>
+        </section>
+    </body>
+    <script>
+        function clearArticles() {
+            articles_container = document.getElementById("articles-container");
+            articles_container.innerHTML = "<p>No article has been loaded (yet)!</p>"; //overwrite content, if any
+        }
+
+        function updateArticles() {
+            // Do async request with XMLHttpRequest
+            const request = new XMLHttpRequest();
+            request.open("GET", "/data/articles.json");
+            request.onload = function() {
+                articles = JSON.parse(request.responseText);
+                clearArticles();
+                articles_container = document.getElementById("articles-container");
+                articles_container.innerHTML = ""; //delete content
+    
+                articles.forEach( function(article){
+                    let article_element = document.createElement("article");
+                    article_element.className = "article"
+                    article_element.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <p>
+                        <span class="author">${article.author}</span>, 
+                        <span class="year">${article.year}</span>.
+                    </p>
+                    `
+                    articles_container.append(article_element)
+                });
+            }
+            request.send();
+        }
+
+        //add callback on click on load articles button
+        document.getElementById('load-articles-button').onclick = function(e){
+            updateArticles();
+        }
+
+        //add callback on click on clear articles button
+        document.getElementById('clear-articles-button').onclick = function(e){
+            clearArticles();
+        }
+    </script>
+</html>
